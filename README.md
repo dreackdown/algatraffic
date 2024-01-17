@@ -13,7 +13,7 @@ Este projeto é uma API construída com **Java, Java Spring and MySql.**
 - [Uso](#uso)
 - [Endpoints da API](#api-endpoints)
 
-## Usage
+## Uso
 
 1. Inicie a aplicação com o Maven
 2. A API estará acessível em http://localhost:8080
@@ -48,7 +48,7 @@ PUT /veiculos/{id} - Atualiza um veículo
 DELETE /veiculos/{id} - Apaga um veículo
 ```
 
-**BODY**
+**CORPO**
 ```json
 {
   "proprietario": {
