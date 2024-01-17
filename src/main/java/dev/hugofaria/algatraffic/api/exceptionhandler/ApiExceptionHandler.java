@@ -2,6 +2,7 @@ package dev.hugofaria.algatraffic.api.exceptionhandler;
 
 import dev.hugofaria.algatraffic.domain.exception.NegocioException;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
