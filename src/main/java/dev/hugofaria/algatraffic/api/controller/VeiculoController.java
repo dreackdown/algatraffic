@@ -1,10 +1,12 @@
 package dev.hugofaria.algatraffic.api.controller;
 
+import dev.hugofaria.algatraffic.api.model.VeiculoDTO;
 import dev.hugofaria.algatraffic.domain.model.Veiculo;
 import dev.hugofaria.algatraffic.domain.repository.VeiculoRepository;
 import dev.hugofaria.algatraffic.domain.service.RegistroVeiculoService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,8 +19,8 @@ import java.util.List;
 public class VeiculoController {
 
     private final VeiculoRepository veiculoRepository;
-
-    private final RegistroVeiculoService veiculoService;
+    private final RegistroVeiculoService registroVeiculoService;
+    private final ModelMapper modelMapper;
 
     @GetMapping
     public List<Veiculo> listar() {
@@ -26,8 +28,9 @@ public class VeiculoController {
     }
 
     @GetMapping("/{veiculoId}")
-    public ResponseEntity<Veiculo> buscar(@PathVariable Long veiculoId) {
+    public ResponseEntity<VeiculoDTO> buscar(@PathVariable Long veiculoId) {
         return veiculoRepository.findById(veiculoId)
+                .map(veiculo -> modelMapper.map(veiculo, VeiculoDTO.class))
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
@@ -35,6 +38,6 @@ public class VeiculoController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Veiculo cadastrar(@Valid @RequestBody Veiculo veiculo) {
-        return veiculoService.cadastrar(veiculo);
+        return registroVeiculoService.cadastrar(veiculo);
     }
 }
