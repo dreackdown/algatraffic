@@ -5,6 +5,7 @@ import dev.hugofaria.algatraffic.api.model.VeiculoDTO;
 import dev.hugofaria.algatraffic.api.model.input.VeiculoInput;
 import dev.hugofaria.algatraffic.domain.model.Veiculo;
 import dev.hugofaria.algatraffic.domain.repository.VeiculoRepository;
+import dev.hugofaria.algatraffic.domain.service.ApreensaoVeiculoService;
 import dev.hugofaria.algatraffic.domain.service.RegistroVeiculoService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -20,7 +21,8 @@ import java.util.List;
 public class VeiculoController {
 
     private final VeiculoRepository veiculoRepository;
-    private final RegistroVeiculoService registroVeiculoService;
+    private final RegistroVeiculoService veiculoService;
+    private final ApreensaoVeiculoService apreensaoService;
     private final VeiculoMapper veiculoMapper;
 
     @GetMapping
@@ -40,8 +42,20 @@ public class VeiculoController {
     @ResponseStatus(HttpStatus.CREATED)
     public VeiculoDTO cadastrar(@Valid @RequestBody VeiculoInput veiculoInput) {
         Veiculo novoVeiculo = veiculoMapper.toEntity(veiculoInput);
-        Veiculo veiculoCadastrado = registroVeiculoService.cadastrar(novoVeiculo);
+        Veiculo veiculoCadastrado = veiculoService.cadastrar(novoVeiculo);
 
         return veiculoMapper.toDTO(veiculoCadastrado);
+    }
+
+    @PutMapping("/{veiculoId}/apreensao")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void apreender(@PathVariable Long veiculoId) {
+        apreensaoService.apreender(veiculoId);
+    }
+
+    @DeleteMapping("/{veiculoId}/apreensao")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void removerApreensao(@PathVariable Long veiculoId) {
+        apreensaoService.removerApreensao(veiculoId);
     }
 }

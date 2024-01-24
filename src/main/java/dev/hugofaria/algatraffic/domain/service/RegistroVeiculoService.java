@@ -1,5 +1,6 @@
 package dev.hugofaria.algatraffic.domain.service;
 
+import dev.hugofaria.algatraffic.domain.exception.EntidadeNaoEncontradaException;
 import dev.hugofaria.algatraffic.domain.exception.NegocioException;
 import dev.hugofaria.algatraffic.domain.model.Proprietario;
 import dev.hugofaria.algatraffic.domain.model.StatusVeiculo;
@@ -18,6 +19,11 @@ public class RegistroVeiculoService {
     private final VeiculoRepository veiculoRepository;
 
     private final RegistroProprietarioService proprietarioService;
+
+    public Veiculo buscar(Long veiculoId) {
+        return veiculoRepository.findById(veiculoId)
+                .orElseThrow(() -> new EntidadeNaoEncontradaException("Veículo não encontrado"));
+    }
 
     @Transactional
     public Veiculo cadastrar(Veiculo novoVeiculo) {

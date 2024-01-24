@@ -12,6 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @Component
 public class VeiculoMapper {
+
     private final ModelMapper modelMapper;
 
     public Veiculo toEntity(VeiculoInput veiculoInput) {
