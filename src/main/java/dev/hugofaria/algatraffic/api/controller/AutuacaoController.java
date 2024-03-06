@@ -28,8 +28,7 @@ public class AutuacaoController {
     public AutuacaoDTO registrar(@PathVariable Long veiculoId, @Valid @RequestBody AutuacaoInput autuacaoInput) {
         Autuacao novaAutuacao = autuacaoMapper.toEntity(autuacaoInput);
 
-        Autuacao autuacaoRegistrada = autuacaoService
-                .registrar(veiculoId, novaAutuacao);
+        Autuacao autuacaoRegistrada = autuacaoService.registrar(veiculoId, novaAutuacao);
 
         return autuacaoMapper.toDTO(autuacaoRegistrada);
     }
