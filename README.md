@@ -11,12 +11,14 @@ Facilitar a administração de informações de trânsito com uma abordagem prá
 - Gestão de Proprietários e Veículos: Gerenciamento completo dos dados de proprietários e veículos.
 - Ações Personalizadas: Endpoints para operações não-CRUD, gerenciando autuações.
 
-## 🚀 Tecnologias utilizadas
+## 🚀 Tecnologias e Práticas utilizadas
 
-- Java, Spring Boot.
-- MySQL, Flyway para migrações.
-- Lombok para redução de código boilerplate.
-- ModelMapper para mapeamento de objetos.
+- Java 17
+- Spring REST
+- Spring Boot e Spring MVC
+- Jakarta Persistence, Flyway e Lombok
+- Validações com Jakarta Bean Validation
+- Tratamento e modelagem de erros da API
 
 ## 📦 Instalação e execução
 
