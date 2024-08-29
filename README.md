@@ -1,33 +1,63 @@
-## 💻 Sobre o projeto
+# 🚗 Alga-Transito
 
-Algatraffic é um serviço de gestão de autuações que tem como objetivo simplificar o gerenciamento de autuações. Suas funcionalidades incluem o registro e acompanhamento detalhado das autuações recebidas, notificações para prazos e ações necessárias para o proprietário do veículo.
----
+O Alga-Transito é um sistema de gestão de dados relacionado a autuações de trânsito, proprietários de veículos, e os próprios veículos. Implementado em Java com Spring Boot, o projeto oferece endpoints para operações CRUD tradicionais e também inclui funcionalidades adicionais que realizam ações mais complexas.
+## 🎯 Objetivo
 
-## ⚙️ Funcionalidades
+Facilitar a administração de informações de trânsito com uma abordagem prática e escalável, integrando diversas operações de gerenciamento e automação.
+## 🛠️ Funcionalidades
 
-- [x] CRUD de proprietários;
-- [x] CRUD de veículos;
-- [x] Registro de autuações;
+- Gestão de Autuações: Criar, consultar, atualizar e excluir autuações.
 
----
+- Gestão de Proprietários e Veículos: Gerenciamento completo dos dados de proprietários e veículos.
+- Ações Personalizadas: Endpoints para operações não-CRUD, gerenciando autuações.
 
-## 🛠 Tecnologias
+## 🚀 Tecnologias utilizadas
 
-As seguintes tecnologias foram utilizadas no desenvolvimento da API Rest do projeto:
+- Java, Spring Boot.
+- MySQL, Flyway para migrações.
+- Lombok para redução de código boilerplate.
+- ModelMapper para mapeamento de objetos.
 
-- **[Java 17](https://www.oracle.com/java)**
-- **[Spring Boot  3.1.0](https://spring.io/projects/spring-boot)**
-- **[Maven](https://maven.apache.org)**
-- **[MySQL](https://www.mysql.com)**
-- **[Hibernate](https://hibernate.org)**
-- **[Flyway](https://flywaydb.org)**
-- **[Lombok](https://projectlombok.org)**
-- **[ModelMapper](https://modelmapper.org)**
+## 📦 Instalação e execução
 
----
+1. Clonar o repositório
+    ```bash
+    git clone https://github.com/dreackdown/algatransito.git
+    cd algatransito
+    ```
+2. Configurar o Banco de Dados: Atualize as configurações do banco de dados no arquivo `application.properties`. 
+3. Executar a aplicação:
+    ```bash
+    mvn spring-boot:run
+    ```
+   A aplicação estará acessível em <http://localhost:8080>.
+## 🧪 Testando a API
 
-## 📝 Licença
+Você pode testar o endpoint `/proprietarios` usando o Swagger UI, Postman, Insomnia ou cURL.
 
-Projeto desenvolvido por [Hugo Faria Lima](https://www.linkedin.com/in/hugofarialima/).
+### Exemplo de chamada
 
----
+```bash
+{
+  "nome": "José da Silva",
+  "email": "jose@example.com",
+  "telefone": "+111222333"
+}
+```
+
+### Exemplo de resposta
+```json
+{
+  "id": 1,
+  "nome": "José da Silva",
+  "email": "jose@example.com",
+  "telefone": "3128762293"
+}
+```
+
+## Contato
+
+Para qualquer dúvida ou sugestão, entre em contato:
+
+- Email: <devhugofaria@gmail.com>
+- LinkedIn: [Hugo Faria Lima](https://www.linkedin.com/in/hugofarialima)
