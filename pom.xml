@@ -10,11 +10,11 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>dev.hugofaria</groupId>
-    <artifactId>algatraffic-api</artifactId>
+    <groupId>dev.hugo.algatransito</groupId>
+    <artifactId>algatransito-api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>algatraffic-api</name>
-    <description>API do algaTraffic</description>
+    <name>algatransito-api</name>
+    <description>API do AlgaTransito</description>
 
     <properties>
         <java.version>17</java.version>
